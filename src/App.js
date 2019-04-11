@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import Articles from './components/pages/Articles';
+import Authors from './components/pages/Authors';
+
+// const Api_Key = "";
+// const url = "http://export.arxiv.org/api/query?search_query=all:psychiatry+AND+all:therapy+AND+all:datascience+AND+all:machinelearning&sortBy=submittedDate&sortOrder=ascending";
+
 
 class App extends Component {
+ 
+
+  
   render() {
     return (
+      <Router>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Route exact path = "/" component = {Articles}></Route>
+        <Route exact path = "/authors" component = {Authors}></Route>
+
+
       </div>
+      </Router>
     );
+    
   }
 }
 
